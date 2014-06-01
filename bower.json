@@ -1,0 +1,36 @@
+{
+  "name": "mean-todo",
+  "version": "0.0.2",
+  "homepage": "https://github.com/mbonaci/meanest-realtime-task-tracker",
+  "description": "Meanest realtime task tracker app (we don't want to call it Todo app, right?)",
+  "main": "app.js",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "angular",
+    "express",
+    "sockjs",
+    "primus",
+    "node",
+    "mongoose"
+  ],
+  "authors": [
+    "mbonaci@gmail.com"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16",
+    "angular-primus": "~0.2.2",
+    "bootstrap": "~3.1.1",
+    "jquery": ">=1.10.2",
+    "sockjs": "~0.3.4"
+  }
+}

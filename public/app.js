@@ -97,7 +97,7 @@ var meanTodo = angular.module('MeanTodo', ['primus'])
       task.state = TASK_STATE.ACTIVE;
       task.order = $scope.tasks.length + 1;  // put at the end
       return task;
-    }
+    };
 
 
     // change one or more @props of task with @id
@@ -108,7 +108,7 @@ var meanTodo = angular.module('MeanTodo', ['primus'])
 //          task.state = newState;
         }
       });
-    }
+    };
 
 
     /**
