@@ -1,0 +1,93 @@
+<!doctype html>
+
+<html ng-app="MeanTodo">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- mobile viewport -->
+
+  <title>The meanest Todo App</title>
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body ng-controller="mainController">
+  <div class="container">
+
+    <form role="form" class="row">
+      <div class="input-group input-group-lg">
+        <span id="header" class="input-group-addon">
+          <i id="icon-header" class="glyphicon glyphicon-edit"></i>
+        </span>
+        <input id="name" type="text" ng-model="task.name" class="form-control td-name" placeholder="Task name">
+        <input id="desc" type="text" ng-model="task.desc" class="form-control td-desc" placeholder="Task description">
+        <span id="send" class="input-group-addon" ng-click="createTodo()">
+          <i id="icon-send" class="fa fa-arrow-circle-o-right fa-3x"></i>
+        </span>
+      </div>
+    </form>
+
+    <div class="todo-list row" >
+
+      <ul class="todos list-unstyled list-group td-list-group">
+        <todo-item
+            ng-repeat="task in tasks | filter:{state: 'Active'} | orderBy:'-order'"
+            task="{{task}}"
+            TASK_STATE="{{TASK_STATE}}"
+            icon="bars"></todo-item>
+      </ul>
+
+    </div>
+
+    <hr>
+
+    <div class="todo-list row" >
+
+      <ul class="todos list-unstyled list-group td-list-group">
+        <todo-item
+            ng-repeat="task in tasks | filter:{state: 'On hold'} | orderBy:'-order'"
+            task="{{task}}"
+            TASK_STATE="{{TASK_STATE}}"
+            icon="pause"></todo-item>
+      </ul>
+
+    </div>
+
+    <hr>
+
+
+    <div class="todo-list row" >
+
+      <ul class="todos list-unstyled list-group td-list-group">
+        <todo-item
+            ng-repeat="task in tasks | filter:{state: 'Complete'} | orderBy:'-order'"
+            task="{{task}}"
+            TASK_STATE="{{TASK_STATE}}"
+            icon="check-square-o"></todo-item>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="well well-sm alert-warning text-right align-bottom">
+  <span id="badge" class="badge alert-info">
+      <i class="glyphicon glyphicon-user"></i>
+      Users online: {{clients}}
+  </span>
+  </div>
+
+  <script type="text/javascript" src="bower_components/sockjs/sockjs.js"></script>
+  <script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
+  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="js/primus.js"></script>
+  <script type="text/javascript" src="bower_components/angular-primus/angular-primus.js"></script>
+  <script type="text/javascript" src="js/ngRepeatReorder.js"></script>
+  <script type="text/javascript" src="js/services.js"></script>
+  <script type="text/javascript" src="js/directives.js"></script>
+
+</body>
+</html>

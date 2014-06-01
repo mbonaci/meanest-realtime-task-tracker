@@ -1,0 +1,23 @@
+<li class="list-group-item row" draggable="true">
+
+  <div class="col-xs-1">
+    <i class="fa fa-{{icon}} fa-3x td-icon"></i>
+  </div>
+
+  <div class="col-xs-10">
+    <h4 class="td-name">{{task.name}}</h4>
+    <small>{{task.desc}} - {{task.state}}</small>
+  </div>
+
+  <div class="col-xs-1">
+    <a class="dropdown dropdown-toggle td-align-bottom" data-toggle="dropdown" href="#">
+      <b class="glyphicon glyphicon-chevron-down"></b>
+      <ul class="dropdown-menu">
+        <li><a href="#" ng-mouseup="changeState(task._id, TASK_STATE.ACTIVE)">Active</a></li>
+        <li><a href="#" ng-mouseup="changeState(task._id, TASK_STATE.ON_HOLD)">On hold</a></li>
+        <li><a href="#" ng-mouseup="changeState(task._id, TASK_STATE.COMPLETE)">Complete</a></li>
+      </ul>
+    </a>
+
+  </div>
+</li>

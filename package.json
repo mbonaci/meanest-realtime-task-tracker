@@ -1,0 +1,21 @@
+{
+  "name": "mean-todo",
+  "version": "0.0.1",
+  "description": "The meanest todo app ever.",
+  "main": "server.js",
+  "author": "mbonaci",
+  "dependencies": {
+    "body-parser": "^1.2.0",
+    "express": "^4.3.1",
+    "express-method-override": "0.0.3",
+    "graceful-fs": "^2.0.3",
+    "mongoose": "^3.8.10",
+    "morgan": "^1.1.1",
+    "primus": "^2.2.2",
+    "primus-emitter": "^3.0.2",
+    "sockjs": "^0.3.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.0.19"
+  }
+}
