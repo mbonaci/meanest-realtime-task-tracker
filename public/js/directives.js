@@ -1,4 +1,4 @@
-meanTodo.directive('todoItem', function() {
+meanTodo.directive('tdTodoItem', function() {
   return {
     restrict: 'E',
     scope: "=todo",
@@ -11,5 +11,20 @@ meanTodo.directive('todoItem', function() {
         scope.$apply(elem.ngMouseup);
       });
     }
+  };
+});
+
+
+meanTodo.directive('tdEnter', function() {
+  return function(scope, element, attrs) {
+    element.bind("keydown keypress", function(event) {
+      if(event.which === 13) {
+        scope.$apply(function(){
+          scope.$eval(attrs.tdEnter, {'event': event});
+        });
+
+        event.preventDefault();
+      }
+    });
   };
 });

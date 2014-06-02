@@ -7,7 +7,7 @@
 
   <title>The meanest Todo App</title>
 
-  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles/style.css">
 </head>
@@ -20,8 +20,8 @@
         <span id="header" class="input-group-addon">
           <i id="icon-header" class="glyphicon glyphicon-edit"></i>
         </span>
-        <input id="name" type="text" ng-model="task.name" class="form-control td-name" placeholder="Task name">
-        <input id="desc" type="text" ng-model="task.desc" class="form-control td-desc" placeholder="Task description">
+        <input id="name" type="text" ng-model="task.name" class="form-control td-name" placeholder="Task name" td-enter="createTodo()">
+        <input id="desc" type="text" ng-model="task.desc" class="form-control td-desc" placeholder="Task description" td-enter="createTodo()">
         <span id="send" class="input-group-addon" ng-click="createTodo()">
           <i id="icon-send" class="fa fa-arrow-circle-o-right fa-3x"></i>
         </span>
@@ -31,11 +31,12 @@
     <div class="todo-list row" >
 
       <ul class="todos list-unstyled list-group td-list-group">
-        <todo-item
+        <td-todo-item
             ng-repeat="task in tasks | filter:{state: 'Active'} | orderBy:'-order'"
             task="{{task}}"
             TASK_STATE="{{TASK_STATE}}"
-            icon="bars"></todo-item>
+            icon="bars">
+        </td-todo-item>
       </ul>
 
     </div>
@@ -45,11 +46,12 @@
     <div class="todo-list row" >
 
       <ul class="todos list-unstyled list-group td-list-group">
-        <todo-item
+        <td-todo-item
             ng-repeat="task in tasks | filter:{state: 'On hold'} | orderBy:'-order'"
             task="{{task}}"
             TASK_STATE="{{TASK_STATE}}"
-            icon="pause"></todo-item>
+            icon="pause">
+        </td-todo-item>
       </ul>
 
     </div>
@@ -60,11 +62,12 @@
     <div class="todo-list row" >
 
       <ul class="todos list-unstyled list-group td-list-group">
-        <todo-item
+        <td-todo-item
             ng-repeat="task in tasks | filter:{state: 'Complete'} | orderBy:'-order'"
             task="{{task}}"
             TASK_STATE="{{TASK_STATE}}"
-            icon="check-square-o"></todo-item>
+            icon="check-square-o">
+        </td-todo-item>
       </ul>
 
     </div>
