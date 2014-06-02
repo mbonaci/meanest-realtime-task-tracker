@@ -15,6 +15,7 @@ Angular, SockJS, Primus, Express, Node, Mongoose
  
 ## Still to do:
  - drag and drop tasks to reorder them (inside the category)
+ - enable task deletion
  - add label with task counter for each category (Active, On hold, Complete)
  
 ## Detailed post follows
