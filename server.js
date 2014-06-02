@@ -190,6 +190,7 @@ app.post('/api/tasks/:task_id', function(req, res) {
     }
   });
 
+
   // check what changed to avoid overhead
 //  if (stateChanged) {
 
@@ -217,11 +218,11 @@ app.post('/api/tasks/:task_id', function(req, res) {
 
 /** delete task **/
 app.delete('/api/tasks/:task_id', function(req, res) {
-  Task.remove({
-    _id : req.params.task_id
-  }, function(err, Task) {
+  Task.remove({_id : req.params.task_id}, function(err, task) {
     if (err)
       res.send(err);
+    else
+      res.send(200);
 
     // get and return all the tasks
 //    Task.find(function(err, tasks) {

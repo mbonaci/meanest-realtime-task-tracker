@@ -17,7 +17,7 @@ var meanTodo = angular.module('MeanTodo', ['primus'])
 
 
   .controller("mainController", ["$scope", "$http", "primus",
-  function($scope, $http, primus) {
+      function($scope, $http, primus) {
 
     // in production: get the enum from the back-end
     var TASK_STATE = {
@@ -56,6 +56,7 @@ var meanTodo = angular.module('MeanTodo', ['primus'])
       $http.put('/api/tasks', $scope.task)
           .success(function() {
             $scope.task = {};  // clear the form
+            angular.element('#name').focus();  // focus on task name field
             console.log("new todo");
 
             notifyNewTask(newTask);  // notify others
@@ -83,8 +84,34 @@ var meanTodo = angular.module('MeanTodo', ['primus'])
     };
 
 
+    $scope.deleteTask = function $deleteTask(taskId) {
+      // remove task from our list
+      deleteTaskById(taskId);
+
+      // send changes to the back-end
+      $http.delete('/api/tasks/' + taskId)
+          .success(function() {
+            console.log("task deleted: ", taskId);
+
+            notifyDeleteTask(taskId);  // notify others
+          })
+          .error(function(data) {
+            console.log('Error: ' + data);
+          });
+    };
+
 
     /** helper functions **/
+    // removes first item that has @value from array or object @arr
+    var removeFirstById = function removeFirstById(arr, value) {
+      for (var b in arr) {  // b = index
+        if (arr[b]._id === value) {
+          arr.splice(b, 1);
+          break;
+        }
+      }
+    };
+
     $scope.filterActive = function(element) {
       console.log(element);
       return element.state === 'Active';
@@ -108,6 +135,12 @@ var meanTodo = angular.module('MeanTodo', ['primus'])
 //          task.state = newState;
         }
       });
+    };
+
+
+    // remove task with @id
+    var deleteTaskById = function hlpDeleteById(id) {
+      removeFirstById($scope.tasks, id);
     };
 
 
@@ -154,6 +187,15 @@ var meanTodo = angular.module('MeanTodo', ['primus'])
     };
 
 
+    // user deletes a task
+    var notifyDeleteTask = function sockDeleteTask(taskId) {
+      var data = {};
+      data.type = "task deletion";
+      data.meat = {id: taskId};
+      primus.write(data);
+    };
+
+
 
     /** incoming socket notifications **/
     primus.$on('data', function news(data) {
@@ -182,24 +224,12 @@ var meanTodo = angular.module('MeanTodo', ['primus'])
 
         case 'task deletion':
           console.log('tasks deletion', data);
-
+          deleteTaskById(data.meat.id);
           break;
       }
     });
 
 
-
-    // delete a task after checking it
-    $scope.$on('deleteTodo', function(id) {
-      $http.delete('/api/tasks/' + id)
-          .success(function(data) {
-            $scope.tasks = data;
-            console.log(data);
-          })
-          .error(function(data) {
-            console.log('Error: ' + data);
-          });
-    });
   }]);
 
 

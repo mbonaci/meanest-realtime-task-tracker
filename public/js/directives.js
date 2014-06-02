@@ -1,3 +1,9 @@
+/**
+ * inserts a single, custom row (<li>)
+ * used with ng-repeat
+ * see: template file
+ **/
+
 meanTodo.directive('tdTodoItem', function() {
   return {
     restrict: 'E',
@@ -15,6 +21,10 @@ meanTodo.directive('tdTodoItem', function() {
 });
 
 
+/**
+ * executes element's td-enter attribute contents
+ * when enter is hit inside element
+ **/
 meanTodo.directive('tdEnter', function() {
   return function(scope, element, attrs) {
     element.bind("keydown keypress", function(event) {

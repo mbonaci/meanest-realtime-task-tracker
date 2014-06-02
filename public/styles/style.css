@@ -50,37 +50,6 @@ a {
   border-bottom-width: 3px;
 }
 
-/* bootstrap overrides */
-.form-control:focus { /* override box shadow to red */
-  border-color: #e9735d;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(240, 128, 128, .6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(240, 128, 128, .6);
-}
-
-.td-icon {
-  color: #999999;
-}
-
-
-.td-name {
-  font-weight: bold;
-  margin-top: 3px;
-  margin-bottom: 0;
-}
-
-.td-align-bottom {
-  /*bottom: 0px;*/
-
-  top: 10px;
-  position: absolute;
-  right: 10px;
-}
-
-.td-done {
-  text-decoration: line-through;
-}
-
 #icon-header {
   font-size: 25px;
   top: 5px;
@@ -93,11 +62,15 @@ a {
   color: #ffffff;
 }
 
-.li-icon-lg {
-  font-size: 30px;
-  top: 8px;
-  color: #ffffff;
+
+/* bootstrap overrides */
+.form-control:focus { /* override box shadow to red */
+  border-color: #e9735d;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(240, 128, 128, .6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(240, 128, 128, .6);
 }
+
 
 .list-group-item:first-child {
   margin-top: 15px;
@@ -106,6 +79,30 @@ a {
 .list-group-item {
   margin-top: 5px;
   cursor: move;
+}
+
+
+
+/* app classes */
+.td-icon {
+  color: #999999;
+}
+
+
+.td-name {
+  font-weight: bold;
+  margin-top: 3px;
+  margin-bottom: 0;
+}
+
+.td-align-bottom {
+  top: 10px;
+  position: absolute;
+
+}
+
+.td-done {
+  text-decoration: line-through;
 }
 
 

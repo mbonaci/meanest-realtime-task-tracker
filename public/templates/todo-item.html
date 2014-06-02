@@ -9,15 +9,26 @@
     <small>{{task.desc}}</small>
   </div>
 
-  <div class="col-xs-1">
-    <a class="dropdown dropdown-toggle td-align-bottom" data-toggle="dropdown" href="#">
-      <b class="glyphicon glyphicon-chevron-down"></b>
-      <ul class="dropdown-menu">
-        <li><a href="#" ng-mouseup="changeState(task._id, TASK_STATE.ACTIVE)">Active</a></li>
-        <li><a href="#" ng-mouseup="changeState(task._id, TASK_STATE.ON_HOLD)">On hold</a></li>
-        <li><a href="#" ng-mouseup="changeState(task._id, TASK_STATE.COMPLETE)">Complete</a></li>
-      </ul>
-    </a>
+  <div class="col-xs-1 container">
+    <div class="row">
+      <div class="col-xs-1">
+        <a ng-mouseup="deleteTask(task._id)" href="#">
+          <b class="glyphicon glyphicon-trash"></b>
+        </a>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-xs-1">
+        <a class="dropdown dropdown-toggle td-align-bottom" data-toggle="dropdown" href="#">
+          <b class="glyphicon glyphicon-chevron-down"></b>
+          <ul class="dropdown-menu">
+            <li><a href="#" ng-mouseup="changeState(task._id, TASK_STATE.ACTIVE)">Active</a></li>
+            <li><a href="#" ng-mouseup="changeState(task._id, TASK_STATE.ON_HOLD)">On hold</a></li>
+            <li><a href="#" ng-mouseup="changeState(task._id, TASK_STATE.COMPLETE)">Complete</a></li>
+          </ul>
+        </a>
+      </div>
+    </div>
   </div>
 </li>
