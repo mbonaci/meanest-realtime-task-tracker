@@ -129,7 +129,6 @@ var updateTask = function mongoUpdate(taskId, changes, cb) {
  * Express
  */
 app.use(express.static(__dirname + '/public'));  // public root
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 // log requests with morgan, colors and all
 app.use(morgan('dev'));
 // parse application/json and application/x-www-form-urlencoded
