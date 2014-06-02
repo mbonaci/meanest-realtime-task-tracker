@@ -17,3 +17,4 @@ Angular, SockJS, Primus, Express, Node, Mongoose
  - add label with task counter for each category (Active, On hold, Complete)
  
 ## Detailed post follows
+I'll soon write a post describing, step by step, how to put this together from the ground up.
