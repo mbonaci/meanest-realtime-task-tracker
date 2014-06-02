@@ -5,6 +5,9 @@ The meanest realtime task tracker
 ### Using:
 Angular, SockJS, Primus, Express, Node, Mongoose
 
+### Screenshot:
+![Screenshot-2014-06-02_14-54-30.png](Screenshot-2014-06-02_14-54-30.png)
+
 ## Installation
  - install MongoDB and start it (on default port, 27017)
  - git clone this repo
