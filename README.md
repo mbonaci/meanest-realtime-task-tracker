@@ -10,6 +10,7 @@ Angular, SockJS, Primus, Express, Node, Mongoose
  - git clone this repo
  - do `npm install` from the project's root
  - do `bower install` from the `public` folder
+ - start server from the project's root with `node server.js`
  - open [http://localhost:3000](http://localhost:3000) (don't use IE)
  
 ## Still to do:
