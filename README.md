@@ -15,7 +15,7 @@ Angular, SockJS, Primus, Express, Node, Mongoose
    - `npm install`
    - `bower install`
    - `node server.js` starts the server 
- - then open [http://localhost:3000](http://localhost:3000) (don't use IE)
+ - then open [http://localhost:3000](http://localhost:3000) on couple of browser tabs (don't use IE)
  
 ## Still to do:
  - drag and drop tasks to reorder them (inside the category)
