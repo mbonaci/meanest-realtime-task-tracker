@@ -10,6 +10,7 @@ Angular, SockJS, Primus, Express, Node, Mongoose
 
 ## Installation
  - install MongoDB and start it (on default port, 27017)
+   - alternatively, you can simply use the following MongoHQ url in `server.js`: `mongodb://guest:pub@kahana.mongohq.com:10058/tasks`
  - git clone this repo
  - `cd` to the project's root and fire:
    - `npm install`
