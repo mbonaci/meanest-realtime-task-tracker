@@ -101,7 +101,8 @@ var toOthers = function emitToOthers(exceptClientWithId, data) {
  * Mongo
  */
 
-mongoose.connect('mongodb://127.0.0.1:27017/todo');
+//mongoose.connect('mongodb://127.0.0.1:27017/todo');  // for on-premise Mongo
+mongoose.connect('mongodb://guest:pub@kahana.mongohq.com:10058/tasks');  // free Mongo (unreliable)
 db = mongoose.connection;
 
 db.once('open', function mongoReady() {
