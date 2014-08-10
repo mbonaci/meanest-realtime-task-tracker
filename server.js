@@ -19,8 +19,8 @@ var primus     = new Primus(server, { parser: 'JSON', transformer: 'sockjs' }),
     },
     db;
 
-// generate client library
-// should go in deployment script, but it's fine for now
+// generate client js library
+// should go in deployment script, but this is fine for now
 primus.save(path.join(__dirname, 'public/js/primus.js'));
 
 
@@ -47,6 +47,7 @@ primus.on('connection', function primusConnection(spark) {
     switch (data.type) {
 
       case 'client no':
+        // broadcast to all connected clients
         primus.write({
           type: 'client no',
           meat: {'clients': primus.connected}
@@ -54,6 +55,7 @@ primus.on('connection', function primusConnection(spark) {
         break;
 
       case 'task creation':
+        // broadcast to all connected clients except originator
         toOthers(spark.id, data);
         break;
 
@@ -76,6 +78,7 @@ primus.on('connection', function primusConnection(spark) {
 
 /** client disconnects: refresh number of connected clients **/
 primus.on('disconnection', function primusDisconnection(spark) {
+  // to all connected is fine here
   primus.write({
     type: 'client no',
     meat: {clients: primus.connected}
@@ -225,12 +228,6 @@ app.delete('/api/tasks/:task_id', function(req, res) {
     else
       res.send(200);
 
-    // get and return all the tasks
-//    Task.find(function(err, tasks) {
-//      if (err)
-//        res.send(err);
-//      res.json(tasks);
-//    });
   });
 });
 
@@ -251,17 +248,3 @@ app.get('*', function(req, res) {
     });
 //  res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 });
-
-
-
-
-
-//io.sockets.on('connection', function (socket) {
-//  socket.emit('news', { hello: 'world' });
-//  socket.on('my other event', function (data) {
-//    console.log(data);
-//  });
-//});
-
-//app.listen(3000);
-//io = io.listen(server);
