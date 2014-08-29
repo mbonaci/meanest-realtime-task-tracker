@@ -10,7 +10,7 @@ Angular, SockJS, Primus, Express, Node, Mongoose
 
 ## Installation
  - install MongoDB and start it (on default port, 27017)
-   - alternatively, you can use the following MongoHQ url in `server.js`: `mongodb://guest:pub@kahana.mongohq.com:10058/tasks`
+   - alternatively, you can use the following MongoHQ (now [compose](https://www.compose.io/)) url in `server.js`: `mongodb://guest:pub@kahana.mongohq.com:10058/tasks`
  - git clone this repo
  - `cd` to the project's root and fire:
    - `npm install`
@@ -26,3 +26,4 @@ Angular, SockJS, Primus, Express, Node, Mongoose
 ## Alternative implementations:
  - use leveldb for persistence and client synchronization:
    - multilevel, level-live-stream, level-livefeed (streams2), level-trigger
+ - use [PouchDB](http://pouchdb.com/) for local storage and synchronization
